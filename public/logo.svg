@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <!-- Upward trend line -->
+  <path d="M4 28 L12 22 L18 25 L26 14 L32 18 L38 8" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Pulse dot -->
+  <circle cx="38" cy="8" r="3" fill="#0d9488"/>
+  <!-- Radar arc 1 -->
+  <path d="M34 4 Q42 0 46 6" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <!-- Radar arc 2 -->
+  <path d="M36 1 Q46 -4 50 4" stroke="#0d9488" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.3"/>
+  <!-- Text: Trend -->
+  <text x="54" y="28" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#0f172a">Trend</text>
+  <!-- Text: Radar -->
+  <text x="120" y="28" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#0d9488">Radar</text>
+</svg>

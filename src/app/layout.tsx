@@ -5,11 +5,11 @@ import { Footer } from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "TrendRadar - Teknik, AI & Trender",
+    default: "TrendRadar - Ekonomi, Marknad & Finans",
     template: "%s | TrendRadar",
   },
   description:
-    "Din k\u00e4lla f\u00f6r de senaste trenderna inom teknik, AI och innovation. Vi bevakar framtiden s\u00e5 att du kan ligga steget f\u00f6re.",
+    "Sveriges ledande plattform f\u00f6r ekonominyheter, marknadsanalys och finansiell information. Vi g\u00f6r ekonomi begripligt.",
   metadataBase: new URL(
     `https://${process.env.NEXT_PUBLIC_HOSTNAME || "trendradar.se"}`
   ),
