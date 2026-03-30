@@ -5,7 +5,6 @@ import { LatestNewsSection } from "@/components/Main_page/LatestNewsSection";
 import { NewsletterSection } from "@/components/Main_page/NewsletterSection";
 import type { Post } from "@/lib/types";
 
-// Placeholder data for when WordPress is not yet connected
 function getPlaceholderPosts(count: number, categoryName?: string): Post[] {
   return Array.from({ length: count }, (_, i) => ({
     id: `placeholder-${categoryName || "post"}-${i}`,
@@ -15,22 +14,22 @@ function getPlaceholderPosts(count: number, categoryName?: string): Post[] {
     date: new Date(Date.now() - i * 86400000).toISOString(),
     modified: new Date().toISOString(),
     excerpt:
-      "<p>Den h\u00e4r artikeln kommer att fyllas med inneh\u00e5ll n\u00e4r WordPress \u00e4r anslutet. H\u00e5ll utkik efter sp\u00e4nnande nyheter inom teknik och innovation.</p>",
+      "<p>L\u00e4s v\u00e5r senaste analys om de ekonomiska trender som p\u00e5verkar Sverige och v\u00e4rlden. H\u00e5ll dig uppdaterad med TrendRadar.</p>",
     content: "",
     featuredImage: null,
     categories: {
       nodes: [
         {
-          name: categoryName || "Nyheter",
-          slug: categoryName?.toLowerCase() || "nyheter",
+          name: categoryName || "Ekonomi",
+          slug: categoryName?.toLowerCase() || "ekonomi",
           databaseId: i + 100,
         },
       ],
     },
     author: {
       node: {
-        name: "TrendRadar",
-        slug: "trendradar",
+        name: "TrendRadar Redaktion",
+        slug: "redaktion",
       },
     },
   }));
@@ -38,28 +37,33 @@ function getPlaceholderPosts(count: number, categoryName?: string): Post[] {
 
 function getPlaceholderTitle(index: number, category?: string): string {
   const titles: Record<string, string[]> = {
-    Teknik: [
-      "Nya genombrott inom kvantdatorer f\u00f6rv\u00e4ntas 2026",
-      "S\u00e5 f\u00f6r\u00e4ndrar 6G v\u00e5r uppkopplade v\u00e4rld",
-      "De mest lovande tech-startupsen just nu",
+    Ekonomi: [
+      "Sveriges BNP visar ov\u00e4ntat stark tillv\u00e4xt i Q1",
+      "Riksbanken signalerar ny r\u00e4ntes\u00e4nkning",
+      "Inflationen sjunker snabbare \u00e4n v\u00e4ntat",
     ],
-    AI: [
-      "AI-agenter tar n\u00e4sta steg mot autonomi",
-      "S\u00e5 p\u00e5verkar generativ AI arbetsmarknaden",
-      "Maskinl\u00e4rning inom sjukv\u00e5rden: En revolution",
+    Marknad: [
+      "Stockholmsb\u00f6rsen n\u00e5r nya rekordniv\u00e5er",
+      "Tech-sektorn leder b\u00f6rsuppg\u00e5ngen under v\u00e5ren",
+      "R\u00e5varupriserna stiger efter geopolitisk oro",
     ],
-    Trender: [
-      "De 10 hetaste tekniktrenderna f\u00f6r 2026",
-      "H\u00e5llbar tech: Trender som f\u00f6r\u00e4ndrar branschen",
-      "Framtidens arbetsplats: Vad kan vi f\u00f6rv\u00e4nta oss?",
+    Finans: [
+      "Storbankerna redovisar rekordvinster 2026",
+      "Nya regler f\u00f6r bol\u00e5netak v\u00e4ntas i sommar",
+      "Sparkontot vs fonder: S\u00e5 b\u00f6r du t\u00e4nka nu",
+    ],
+    Politik: [
+      "Regeringens v\u00e5rbudget: De viktigaste f\u00f6rslagen",
+      "EU:s nya ekonomiska ramverk p\u00e5verkar Sverige",
+      "Handelskonflikter hotar global tillv\u00e4xt",
     ],
     default: [
-      "TrendRadar lanseras: Din nya k\u00e4lla f\u00f6r tekniktrender",
-      "Varf\u00f6r du b\u00f6r h\u00e5lla koll p\u00e5 teknikutvecklingen",
-      "Digital transformation: Status 2026",
-      "Framtidens teknik: Vad s\u00e4ger experterna?",
-      "Innovation i Sverige: En \u00f6versikt",
-      "S\u00e5 navigerar du den digitala framtiden",
+      "Ekonomin 2026: Fem trender du b\u00f6r ha koll p\u00e5",
+      "S\u00e5 p\u00e5verkas din pl\u00e5nbok av de senaste besluten",
+      "Experterna: H\u00e4r \u00e4r marknadens n\u00e4sta drag",
+      "Konjunkturl\u00e4get: Vart \u00e4r Sverige p\u00e5 v\u00e4g?",
+      "Digitaliseringen omformar den svenska ekonomin",
+      "H\u00e5llbara investeringar forts\u00e4tter v\u00e4xa kraftigt",
     ],
   };
 
@@ -69,29 +73,28 @@ function getPlaceholderTitle(index: number, category?: string): string {
 
 export default async function HomePage() {
   let heroPosts: Post[];
-  let teknikPosts: Post[];
-  let aiPosts: Post[];
+  let ekonomiPosts: Post[];
+  let marknadPosts: Post[];
   let latestPosts: Post[];
   let hasMoreLatest = false;
 
   try {
-    const [heroData, teknikData, aiData, latestData] = await Promise.all([
+    const [heroData, ekonomiData, marknadData, latestData] = await Promise.all([
       getPosts(5),
-      getPostsByCategory("teknik", 3),
-      getPostsByCategory("ai", 3),
+      getPostsByCategory("ekonomi", 3),
+      getPostsByCategory("marknad", 3),
       getPosts(6),
     ]);
 
     heroPosts = heroData.posts;
-    teknikPosts = teknikData.posts;
-    aiPosts = aiData.posts;
+    ekonomiPosts = ekonomiData.posts;
+    marknadPosts = marknadData.posts;
     latestPosts = latestData.posts;
     hasMoreLatest = latestData.pageInfo.hasNextPage;
   } catch {
-    // WordPress not connected yet - use placeholder data
     heroPosts = getPlaceholderPosts(5);
-    teknikPosts = getPlaceholderPosts(3, "Teknik");
-    aiPosts = getPlaceholderPosts(3, "AI");
+    ekonomiPosts = getPlaceholderPosts(3, "Ekonomi");
+    marknadPosts = getPlaceholderPosts(3, "Marknad");
     latestPosts = getPlaceholderPosts(6);
     hasMoreLatest = false;
   }
@@ -99,12 +102,8 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection posts={heroPosts} />
-      <CategorySection title="Teknik" slug="teknik" posts={teknikPosts} />
-      <CategorySection
-        title="AI & Maskinl\u00e4rning"
-        slug="ai"
-        posts={aiPosts}
-      />
+      <CategorySection title="Ekonomi" slug="ekonomi" posts={ekonomiPosts} />
+      <CategorySection title="Marknad & B\u00f6rs" slug="marknad" posts={marknadPosts} />
       <NewsletterSection />
       <LatestNewsSection initialPosts={latestPosts} hasMore={hasMoreLatest} />
     </>
