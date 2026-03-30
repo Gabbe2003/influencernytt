@@ -3,61 +3,61 @@ import { BarChart3, Users, Eye } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Annonsera | TrendRadar",
-  description: "Annonsera hos TrendRadar och n\u00e5 en engagerad m\u00e5lgrupp intresserad av teknik, AI och innovation.",
+  description: "Annonsera hos TrendRadar och n\u00e5 beslutsfattare och ekonomiintresserade i Sverige.",
 };
 
 export default function AdvertisementPage() {
   return (
     <div className="base-width py-12">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Annonsera hos TrendRadar</h1>
+        <h1 className="text-3xl font-bold mb-6 tracking-tight">Annonsera hos TrendRadar</h1>
         <p className="text-lg text-[var(--color-muted)] mb-10 leading-relaxed">
-          N\u00e5 en engagerad och teknikintresserad m\u00e5lgrupp genom att annonsera hos
-          TrendRadar. Vi erbjuder skr\u00e4ddarsydda annonsl\u00f6sningar som hj\u00e4lper
-          ditt varum\u00e4rke att synas.
+          N\u00e5 beslutsfattare, investerare och ekonomiintresserade genom att
+          annonsera hos TrendRadar. Vi erbjuder annonsl\u00f6sningar som levererar
+          resultat.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="p-6 bg-[var(--input)] rounded-xl text-center">
-            <Users className="w-8 h-8 text-[var(--color-accent)] mx-auto mb-3" />
-            <h3 className="font-semibold mb-1">Engagerad m\u00e5lgrupp</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+          <div className="p-6 bg-[var(--input)] rounded-xl">
+            <Users className="w-7 h-7 text-[var(--color-accent)] mb-3" />
+            <h3 className="font-semibold mb-1">Kvalificerad m\u00e5lgrupp</h3>
             <p className="text-sm text-[var(--color-muted)]">
-              Bes\u00f6kare intresserade av teknik och innovation.
+              Beslutsfattare och ekonomiintresserade bes\u00f6kare.
             </p>
           </div>
-          <div className="p-6 bg-[var(--input)] rounded-xl text-center">
-            <Eye className="w-8 h-8 text-[var(--color-accent)] mx-auto mb-3" />
+          <div className="p-6 bg-[var(--input)] rounded-xl">
+            <Eye className="w-7 h-7 text-[var(--color-accent)] mb-3" />
             <h3 className="font-semibold mb-1">H\u00f6g synlighet</h3>
             <p className="text-sm text-[var(--color-muted)]">
               Premium-placeringar f\u00f6r maximal effekt.
             </p>
           </div>
-          <div className="p-6 bg-[var(--input)] rounded-xl text-center">
-            <BarChart3 className="w-8 h-8 text-[var(--color-accent)] mx-auto mb-3" />
+          <div className="p-6 bg-[var(--input)] rounded-xl">
+            <BarChart3 className="w-7 h-7 text-[var(--color-accent)] mb-3" />
             <h3 className="font-semibold mb-1">M\u00e4tbara resultat</h3>
             <p className="text-sm text-[var(--color-muted)]">
-              Detaljerad rapportering och analys.
+              Detaljerad rapportering och analys av kampanjer.
             </p>
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold mb-4">Annonsformat</h2>
+        <h2 className="text-2xl font-bold mb-4 tracking-tight">Annonsformat</h2>
         <ul className="space-y-3 mb-8 text-[var(--color-muted)]">
-          <li className="flex items-start gap-2">
-            <span className="text-[var(--color-accent)] font-bold">\u2022</span>
+          <li className="flex items-start gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 flex-shrink-0" />
             Display-annonser (banner, sidebar, in-article)
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-[var(--color-accent)] font-bold">\u2022</span>
+          <li className="flex items-start gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 flex-shrink-0" />
             Sponsrat inneh\u00e5ll och native advertising
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-[var(--color-accent)] font-bold">\u2022</span>
-            Nyhetsbrev-sponsring
+          <li className="flex items-start gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 flex-shrink-0" />
+            Nyhetsbrev-sponsring (Morgonbrevet)
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-[var(--color-accent)] font-bold">\u2022</span>
-            Anpassade kampanjer
+          <li className="flex items-start gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 flex-shrink-0" />
+            Skr\u00e4ddarsydda kampanjer
           </li>
         </ul>
 

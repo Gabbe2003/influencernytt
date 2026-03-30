@@ -1,41 +1,43 @@
 import Link from "next/link";
-import { TrendingUp } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--color-secondary)] text-white mt-16">
-      <div className="base-width py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-[var(--color-secondary)] text-white/70 mt-20">
+      <div className="base-width py-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <TrendingUp className="w-6 h-6 text-[var(--color-accent)]" />
-              <span className="text-lg font-bold">
-                <span className="text-white">Trend</span>
-                <span className="text-[var(--color-accent)]">Radar</span>
-              </span>
+            <Link href="/" className="inline-block mb-4">
+              <Logo size="md" />
             </Link>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              Din k\u00e4lla f\u00f6r de senaste trenderna inom teknik, AI och innovation.
-              Vi bevakar framtiden s\u00e5 att du kan ligga steget f\u00f6re.
+            <p className="text-sm leading-relaxed">
+              Sveriges ledande plattform f\u00f6r ekonominyheter, marknadsanalys
+              och finansiell information. Vi g\u00f6r ekonomi begripligt.
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Categories */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-300">
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/40">
               Kategorier
             </h3>
-            <ul className="space-y-2">
-              {["Teknik", "AI", "Trender", "Analys"].map((cat) => (
-                <li key={cat}>
+            <ul className="space-y-2.5">
+              {[
+                { label: "Ekonomi", href: "/category/ekonomi" },
+                { label: "Marknad", href: "/category/marknad" },
+                { label: "Finans", href: "/category/finans" },
+                { label: "Politik", href: "/category/politik" },
+                { label: "B\u00f6rs", href: "/category/bors" },
+              ].map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={`/category/${cat.toLowerCase()}`}
-                    className="text-sm text-gray-400 hover:text-[var(--color-accent)] transition-colors"
+                    href={item.href}
+                    className="text-sm hover:text-white transition-colors"
                   >
-                    {cat}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -44,10 +46,10 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-300">
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/40">
               F\u00f6retag
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
                 { label: "Om oss", href: "/about" },
                 { label: "Kontakt", href: "/contact" },
@@ -57,7 +59,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-400 hover:text-[var(--color-accent)] transition-colors"
+                    className="text-sm hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -68,10 +70,10 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-300">
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/40">
               Juridiskt
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
                 { label: "Integritetspolicy", href: "/privacy-policy" },
                 { label: "Cookiepolicy", href: "/cookie-policy" },
@@ -80,7 +82,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-400 hover:text-[var(--color-accent)] transition-colors"
+                    className="text-sm hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -91,13 +93,13 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-500">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-white/30">
             &copy; {currentYear} TrendRadar. Alla r\u00e4ttigheter f\u00f6rbeh\u00e5llna.
           </p>
           <Link
             href="/sitemap.xml"
-            className="text-xs text-gray-500 hover:text-gray-400 transition-colors"
+            className="text-xs text-white/30 hover:text-white/50 transition-colors"
           >
             Sitemap
           </Link>
